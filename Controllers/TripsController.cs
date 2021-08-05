@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
 using react_aspnetcore_tut.Data;
 
@@ -16,8 +17,14 @@ namespace react_aspnetcore_tut.Controllers
         [HttpGet("[action]")]
         public IActionResult GetTrips()
         {
-            var allTrips = _service.GetAllTrips();
-            return Ok(allTrips);
+            try {
+                // throw new Exception();
+                var allTrips = _service.GetAllTrips();
+
+                return Ok(allTrips);
+            } catch (Exception ex) {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet("SingleTrip/{id}")]
