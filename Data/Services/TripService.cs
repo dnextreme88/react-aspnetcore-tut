@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace react_aspnetcore_tut.Data
 {
@@ -16,7 +17,7 @@ namespace react_aspnetcore_tut.Data
 
         public List<Trip> GetAllTrips()
         {
-            throw new System.NotImplementedException();
+            return Data.Trips.ToList();
         }
 
         public Trip GetTripById(int tripId)

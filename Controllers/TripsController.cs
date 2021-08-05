@@ -3,7 +3,7 @@ using react_aspnetcore_tut.Data;
 
 namespace react_aspnetcore_tut.Controllers
 {
-    [Route("api/trips")]
+    [Route("api/[controller]]")]
     public class TripsController : Controller
     {
         private ITripService _service;
@@ -11,6 +11,14 @@ namespace react_aspnetcore_tut.Controllers
         public TripsController(ITripService service)
         {
             this._service = service;            
+        }
+
+        [HttpGet("[action]")]
+        public IActionResult GetTrips()
+        {
+            var allTrips = _service.GetAllTrips();
+
+            return Ok(allTrips);
         }
 
         [HttpPost("AddTrip")]
