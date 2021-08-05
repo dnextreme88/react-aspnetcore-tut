@@ -30,5 +30,12 @@ namespace react_aspnetcore_tut.Controllers
             }
             return Ok();
         }
+
+        [HttpPut("UpdateTrip/{id}")]
+        public IActionResult UpdateTrip(int id, [FromBody]Trip trip)
+        {
+            _service.UpdateTrip(id, trip);
+            return Ok(trip);
+        }
     }
 }
