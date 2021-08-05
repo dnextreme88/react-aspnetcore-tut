@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using react_aspnetcore_tut.Data;
 
 namespace react_aspnetcore_tut
 {
@@ -28,6 +29,8 @@ namespace react_aspnetcore_tut
             {
                 configuration.RootPath = "ClientApp/build";
             });
+
+            services.AddTransient<ITripService, TripService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
