@@ -19,21 +19,15 @@ namespace react_aspnetcore_tut.Data
             }
         }
 
-        public List<Trip> GetAllTrips()
-        {
-            return Data.Trips.ToList();
-        }
+        public List<Trip> GetAllTrips() => Data.Trips.ToList();
 
-        public Trip GetTripById(int tripId)
-        {
-            return Data.Trips.FirstOrDefault(n => n.Id == tripId);
-        }
+        public Trip GetTripById(int tripId) => Data.Trips.FirstOrDefault(n => n.Id == tripId);
 
         public void UpdateTrip(int tripId, Trip trip)
         {
             var oldTrip = Data.Trips.FirstOrDefault(n => n.Id == tripId);
 
-            if (oldTrip != null)
+            if(oldTrip != null)
             {
                 oldTrip.Name = trip.Name;
                 oldTrip.Description = trip.Description;

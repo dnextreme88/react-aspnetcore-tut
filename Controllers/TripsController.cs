@@ -3,21 +3,20 @@ using react_aspnetcore_tut.Data;
 
 namespace react_aspnetcore_tut.Controllers
 {
-    [Route("api/[controller]]")]
+    [Route("api/[controller]")]
     public class TripsController : Controller
     {
         private ITripService _service;
 
         public TripsController(ITripService service)
         {
-            this._service = service;            
+            this._service = service;
         }
 
         [HttpGet("[action]")]
         public IActionResult GetTrips()
         {
             var allTrips = _service.GetAllTrips();
-
             return Ok(allTrips);
         }
 
