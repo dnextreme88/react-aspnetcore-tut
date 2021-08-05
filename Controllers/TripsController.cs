@@ -21,6 +21,13 @@ namespace react_aspnetcore_tut.Controllers
             return Ok(allTrips);
         }
 
+        [HttpGet("SingleTrip/{id}")]
+        public IActionResult GetTripById(int id)
+        {
+            var trip = _service.GetTripById(id);
+            return Ok(trip);
+        }
+
         [HttpPost("AddTrip")]
         public IActionResult AddTrip([FromBody]Trip trip)
         {
@@ -36,6 +43,13 @@ namespace react_aspnetcore_tut.Controllers
         {
             _service.UpdateTrip(id, trip);
             return Ok(trip);
+        }
+
+        [HttpDelete("DeleteTrip/{id}")]
+        public IActionResult DeleteTrip(int id)
+        {
+            _service.DeleteTrip(id);
+            return Ok();
         }
     }
 }

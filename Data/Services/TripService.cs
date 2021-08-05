@@ -12,7 +12,11 @@ namespace react_aspnetcore_tut.Data
 
         public void DeleteTrip(int tripId)
         {
-            throw new System.NotImplementedException();
+            var trip = Data.Trips.FirstOrDefault(n => n.Id == tripId);
+            if (trip != null)
+            {
+                Data.Trips.Remove(trip);
+            }
         }
 
         public List<Trip> GetAllTrips()
@@ -22,7 +26,7 @@ namespace react_aspnetcore_tut.Data
 
         public Trip GetTripById(int tripId)
         {
-            throw new System.NotImplementedException();
+            return Data.Trips.FirstOrDefault(n => n.Id == tripId);
         }
 
         public void UpdateTrip(int tripId, Trip trip)
